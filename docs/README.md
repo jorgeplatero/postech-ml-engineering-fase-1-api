@@ -145,11 +145,10 @@ Endpoint protegido que lista as predições armazenadas.
 
 ### ☁️ Deploy no Vercel
 
-Esta API está configurada para Deploy Serverless no Vercel utilizando o runtime @vercel/python.
+Esta API está configurada para Deploy Serverless no Vercel. A persistência de dados (histórico de predições) foi atualizada para utilizar o Neon (PostgreSQL Serverless).
 
 Para realizar o deploy, certifique-se de que o arquivo vercel.json esteja na raiz, apontando para api.py como fonte principal. O Vercel gerenciará o ambiente com base no pyproject.toml.
 
 ### 🛡️ Segurança e Configuração
 
 - JWT Secret: altere a variável JWT_SECRET para uma chave forte e armazene-a como variável de ambiente em produção (e.g., Vercel Environment Variables).
-- Banco de dados: para produção, considere migrar para um banco de dados externo (PostgreSQL, MySQL, etc.).
