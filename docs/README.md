@@ -153,7 +153,7 @@ A aplicação atua como a camada de serviço (API) que interage com o cliente e 
 
 A API em produção no Vercel recebe requisições de aplicativo web Streamlit, cujo link e repositório pode ser acessado em:
 
-Streamlit: https://preditorespeciesiris.streamlit.app/
+Aplicativo: https://preditorespeciesiris.streamlit.app/
 
 Repositório GitHub: https://github.com/jorgeplatero/preditor_especies_iris
 
