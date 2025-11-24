@@ -12,7 +12,7 @@ Para instalar o Poetry, use o método oficial:
 curl -sSL [https://install.python-poetry.org](https://install.python-poetry.org) | python3 -
 ```
 
-###  📦 Instalação
+### 📦 Instalação
 
 Clone o repositório e instale as dependências listadas no requirements.txt:
 
