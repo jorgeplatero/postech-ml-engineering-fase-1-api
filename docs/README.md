@@ -1,10 +1,10 @@
 # API Flask para Predição de Espécies Iris
 
-Esta é uma API RESTful construída com Flask que utiliza um modelo de Machine Learning (ML) treinado para prever espécies de Iris. A API é protegida por autenticação via JSON Web Token (JWT) e armazena o histórico de predições em um banco de dados SQLite usando SQLAlchemy.
+Esta é uma API RESTful construída com Flask que utiliza um modelo de Machine Learning (ML) treinado para prever espécies Iris. A API é protegida por autenticação via JWT e armazena o histórico de predições em um banco de dados SQLite.
 
-### ⚙️ Pré-requisitos
+### Pré-requisitos
 
-Certifique-se de ter o Python 3.x e o Poetry instalados em seu sistema.
+Certifique-se de ter o Python 3.11 e o Poetry instalados em seu sistema.
 
 Para instalar o Poetry, use o método oficial:
 
@@ -12,9 +12,9 @@ Para instalar o Poetry, use o método oficial:
 curl -sSL [https://install.python-poetry.org](https://install.python-poetry.org) | python3 -
 ```
 
-### 📦 Instalação
+### Instalação
 
-Clone o repositório e instale as dependências listadas no requirements.txt:
+Clone o repositório e instale as dependências listadas no pyproject.toml:
 
 ```bash
 git clone https://github.com/jorgeplatero/postech_flask_ml_fase_1.git
@@ -24,26 +24,7 @@ poetry install
 
 O Poetry criará um ambiente virtual isolado e instalará todas as bibliotecas necessárias.
 
-### Tecnologias
-
-A aplicação atua como a camada de serviço (API) que interage com o cliente e o banco de dados.
-
-| Componente | Tecnologia | Versão (Especificada) | Descrição |
-| :--- | :--- | :--- | :--- |
-| **Backend/API** | **Flask** | `>=3.1.2, <4.0.0` | Framework Python leve para o desenvolvimento da API RESTful. |
-| **Machine Learning** | **Scikit-learn** | `>=1.7.2, <2.0.0` | Biblioteca para o treinamento e carregamento do modelo de classificação Iris. |
-| **Serialização de Modelo** | **Joblib** | `>=1.5.2, <2.0.0` | Utilizada para salvar e carregar eficientemente o modelo de ML treinado. |
-| **Autenticação** | **Flask-JWT-Extended** | `>=4.7.1, <5.0.0` | Implementa a segurança por JSON Web Tokens. |
-| **Criptografia (Senhas)** | **Flask-Bcrypt** | `>=1.0.1, <2.0.0` | Gerencia o *hashing* seguro de senhas de usuário. |
-| **Persistência/ORM** | **Flask-SQLAlchemy** | `>=3.1.1, <4.0.0` | Camada ORM para interagir com o banco de dados (PostgreSQL/SQLite). |
-| **Driver DB (Postgres)** | **psycopg2-binary** | `>=2.9.11, <3.0.0` | Driver para conexão com o banco de dados PostgreSQL (ex: Neo Serverless Postgres). |
-| **Documentação** | **Flasgger** | `>=0.9.7.1, <0.10.0.0` | Cria a documentação Swagger/OpenAPI interativa para a API. |
-| **Ambiente** | **Python** | `>=3.11, <4.0` | Versões compatíveis para a execução do projeto. |
-| **Gerenciamento** | **Poetry** | `2.2.1` | Gerenciador de dependências, usado para construir e gerenciar o ambiente. |
-
----
-
-### ▶️ Como Rodar a Aplicação
+### Como Rodar a Aplicação
 
 Execute o script Python:
 
@@ -53,9 +34,7 @@ poetry run python3 api.py
 
 A API estará rodando em http://127.0.0.1:5000/
 
-### 🔑 Autenticação e Endpoints
-
-O acesso aos endpoints de predição e histórico (/predict e /predictions) requer um JWT válido.
+## Funcionalidades
 
 1. Home (/)
 
@@ -118,7 +97,7 @@ Resposta de sucesso (JSON):
 
 4. Predição (/predict)
 
-Endpoint protegido que recebe os parâmetros da flor e retorna a espécie prevista, além de armazenar o registro no banco de dados (predictions.db).
+Endpoint protegido que recebe os parâmetros da Iris e retorna a espécie prevista, além de armazenar o registro no banco de dados (predictions.db).
 
 - Método: POST
 - Header: Authorization: Bearer [TOKEN]
@@ -153,12 +132,33 @@ Endpoint protegido que lista as predições armazenadas.
 - Exemplo: /predictions?limit=5&offset=10
 - Resposta de sucesso (JSON): uma lista de objetos de predição.
 
-### ☁️ Deploy no Vercel
+### Tecnologias
 
-Esta API está configurada para Deploy no Vercel. A persistência de dados (histórico de predições) foi utiliza o Neon Serverless PostgreSQL.
+A aplicação atua como a camada de serviço (API) que interage com o cliente e o banco de dados.
 
-Para realizar o deploy, certifique-se de que o arquivo vercel.json esteja na raiz, apontando para api.py como fonte principal. O Vercel gerenciará o ambiente com base no pyproject.toml.
+| Componente | Tecnologia | Versão (Especificada) | Descrição |
+| :--- | :--- | :--- | :--- |
+| **Backend/API** | **Flask** | `>=3.1.2, <4.0.0` | Framework Python leve para o desenvolvimento da API RESTful. |
+| **Machine Learning** | **Scikit-learn** | `>=1.7.2, <2.0.0` | Biblioteca para o treinamento e carregamento do modelo de classificação Iris. |
+| **Serialização de Modelo** | **Joblib** | `>=1.5.2, <2.0.0` | Utilizada para salvar e carregar eficientemente o modelo de ML treinado. |
+| **Autenticação** | **Flask-JWT-Extended** | `>=4.7.1, <5.0.0` | Implementa a segurança por JSON Web Tokens. |
+| **Criptografia (Senhas)** | **Flask-Bcrypt** | `>=1.0.1, <2.0.0` | Gerencia o *hashing* seguro de senhas de usuário. |
+| **Persistência/ORM** | **Flask-SQLAlchemy** | `>=3.1.1, <4.0.0` | Camada ORM para interagir com o banco de dados (PostgreSQL/SQLite). |
+| **Driver DB (Postgres)** | **psycopg2-binary** | `>=2.9.11, <3.0.0` | Driver para conexão com o banco de dados PostgreSQL (ex: Neo Serverless Postgres). |
+| **Documentação** | **Flasgger** | `>=0.9.7.1, <0.10.0.0` | Cria a documentação Swagger/OpenAPI interativa para a API. |
+| **Ambiente** | **Python** | `>=3.11, <4.0` | Versões compatíveis para a execução do projeto. |
+| **Gerenciamento** | **Poetry** | `2.2.1` | Gerenciador de dependências, usado para construir e gerenciar o ambiente. |
 
-### 🛡️ Segurança e Configuração
+### Integrações
 
-- JWT Secret: altere a variável JWT_SECRET para uma chave forte e armazene-a como variável de ambiente em produção (e.g., Vercel Environment Variables).
+A API em produção no Vercel recebe requisições de aplicativo web Streamlit, cujo link e repositório pode ser acessado no link abaixo:
+
+URL do aplicativo: `https://preditorespeciesiris.streamlit.app/`
+
+Repositório GitHub: `https://github.com/jorgeplatero/preditor_especies_iris`
+
+### Deploy no Vercel
+
+Esta API possui arquivo de configuração para Deploy no Vercel. Para realizar o deploy, certifique-se de que o arquivo vercel.json esteja na raiz, apontando para api.py como fonte principal. O Vercel gerenciará o ambiente com base no pyproject.toml. 
+
+A persistência de dados em produção foi realizada intregando a API com o serviço Neon Serverless PostgreSQL. Em produção, altere a variável JWT_SECRET para uma chave forte e armazene-a como variável de ambiente na seção Environment Variables
