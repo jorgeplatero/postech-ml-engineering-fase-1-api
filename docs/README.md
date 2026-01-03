@@ -157,7 +157,7 @@ Aplicativo: https://preditorespeciesiris.streamlit.app/
 
 Repositório GitHub: https://github.com/jorgeplatero/preditor_especies_iris
 
-### Deploy no Vercel
+### Deploy
 
 Esta API possui arquivo de configuração para Deploy no Vercel. Para realizar o deploy, certifique-se de que o arquivo vercel.json esteja na raiz, apontando para api.py como fonte principal. O Vercel gerenciará o ambiente com base no pyproject.toml. 
 
