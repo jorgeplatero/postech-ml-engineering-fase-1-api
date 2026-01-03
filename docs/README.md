@@ -159,6 +159,6 @@ Repositório GitHub: https://github.com/jorgeplatero/preditor_especies_iris
 
 ### Deploy
 
-Esta API possui arquivo de configuração para Deploy no Vercel. Para realizar o deploy, certifique-se de que o arquivo vercel.json esteja na raiz, apontando para api.py como fonte principal. O Vercel gerenciará o ambiente com base no pyproject.toml. 
+Esta API possui arquivo de configuração para deploy no Vercel. Para realizar o deploy, certifique-se de que o arquivo vercel.json esteja na raiz, apontando para api.py como fonte principal. O Vercel gerenciará o ambiente com base no pyproject.toml. 
 
 A persistência de dados em produção foi realizada intregando a API com o serviço Neon Serverless PostgreSQL. Em produção, altere a variável JWT_SECRET para uma chave forte e armazene-a como variável de ambiente na seção Environment Variables.
