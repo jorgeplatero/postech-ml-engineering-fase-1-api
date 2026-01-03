@@ -1,4 +1,4 @@
-# API Flask para Predição de Espécies Iris
+# API para Predição de Espécies Iris
 
 Esta é uma API RESTful construída com Flask que utiliza um modelo de Machine Learning (ML) treinado para prever espécies Iris. A API é protegida por autenticação via JWT e armazena o histórico de predições em um banco de dados SQLite. 
 
