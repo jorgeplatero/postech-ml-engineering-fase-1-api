@@ -143,7 +143,7 @@ A aplicação atua como a camada de serviço (API) que interage com o cliente e 
 | **Serialização** | **Joblib** | `>=1.5.2, <2.0.0` | Biblioteca de utilitários para persistência eficiente de objetos e pipelines de ML |
 | **Autenticação** | **Flask-JWT-Extended** | `>=4.7.1, <5.0.0` | Extensão para implementação de segurança e controle de acesso via tokens JWT |
 | **Criptografia** | **Flask-Bcrypt** | `>=1.0.1, <2.0.0` | Extensão de segurança para hashing e verificação robusta de senhas |
-| **Persistência/ORM** | **Flask-SQLAlchemy** | `>=3.1.1, <4.0.0` | Extensão/ORM para mapeamento e manipulação de bancos de dados relacionais |
+| **ORM** | **Flask-SQLAlchemy** | `>=3.1.1, <4.0.0` | Extensão para mapeamento e manipulação de bancos de dados relacionais |
 | **Driver DB** | **psycopg2-binary** | `>=2.9.11, <3.0.0` | Biblioteca para comunicação nativa com servidores PostgreSQL |
 | **Documentação** | **Flasgger** | `>=0.9.7.1, <0.10.0.0` | Biblioteca para documentação interativa baseada na especificação Swagger/OpenAPI |
 | **Linguagem** | **Python** | `-` | Linguagem para desenvolvimento de scripts |
