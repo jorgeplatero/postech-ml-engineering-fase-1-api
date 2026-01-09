@@ -151,7 +151,7 @@ A aplicação atua como a camada de serviço (API) que interage com o cliente e 
 
 ### Integrações
 
-A API em produção no Vercel recebe requisições de aplicativo web Streamlit.
+A API em produção recebe requisições de um aplicativo web Streamlit.
 
 Link para o aplicativo web: https://preditorespeciesiris.streamlit.app/
 
@@ -159,6 +159,6 @@ Link para o repositório GitHub: https://github.com/jorgeplatero/preditor_especi
 
 ### Deploy
 
-Esta API possui arquivo de configuração para deploy no Vercel. Para realizar o deploy, certifique-se de que o arquivo vercel.json esteja na raiz, apontando para api.py como fonte principal. O Vercel gerenciará o ambiente com base no pyproject.toml. 
+O deploy desta API foi realizado via Vercel. 
 
-A persistência de dados em produção foi realizada intregando a API com o serviço Neon Serverless PostgreSQL. Em produção, altere a variável JWT_SECRET para uma chave forte e armazene-a como variável de ambiente na seção Environment Variables.
+A persistência de dados foi realizada integrando a API com o serviço Neon Serverless PostgreSQL disponível no Vercel.
