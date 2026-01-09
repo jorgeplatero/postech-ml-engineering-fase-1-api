@@ -136,26 +136,26 @@ Endpoint protegido que lista as predições armazenadas.
 
 A aplicação atua como a camada de serviço (API) que interage com o cliente e o banco de dados.
 
-| Componente | Tecnologia | Versão (Especificada) | Descrição |
+| Componente | Tecnologia | Versão | Descrição |
 | :--- | :--- | :--- | :--- |
-| **Backend/API** | **Flask** | `>=3.1.2, <4.0.0` | Framework Python leve para o desenvolvimento da API RESTful. |
-| **Machine Learning** | **Scikit-learn** | `>=1.7.2, <2.0.0` | Biblioteca para o treinamento e carregamento do modelo de classificação Iris. |
-| **Serialização de Modelo** | **Joblib** | `>=1.5.2, <2.0.0` | Utilizada para salvar e carregar eficientemente o modelo de ML treinado. |
-| **Autenticação** | **Flask-JWT-Extended** | `>=4.7.1, <5.0.0` | Implementa a segurança por JSON Web Tokens. |
-| **Criptografia (Senhas)** | **Flask-Bcrypt** | `>=1.0.1, <2.0.0` | Gerencia o *hashing* seguro de senhas de usuário. |
-| **Persistência/ORM** | **Flask-SQLAlchemy** | `>=3.1.1, <4.0.0` | Camada ORM para interagir com o banco de dados (PostgreSQL/SQLite). |
-| **Driver DB (Postgres)** | **psycopg2-binary** | `>=2.9.11, <3.0.0` | Driver para conexão com o banco de dados PostgreSQL (ex: Neo Serverless Postgres). |
-| **Documentação** | **Flasgger** | `>=0.9.7.1, <0.10.0.0` | Cria a documentação Swagger/OpenAPI interativa para a API. |
-| **Ambiente** | **Python** | `>=3.11, <4.0` | Versões compatíveis para a execução do projeto. |
-| **Gerenciamento** | **Poetry** | `2.2.1` | Gerenciador de dependências, usado para construir e gerenciar o ambiente. |
+| **Backend/API** | **Flask** | `>=3.1.2, <4.0.0` | Framework para o desenvolvimento de API REST |
+| **ML** | **Scikit-learn** | `>=1.7.2, <2.0.0` | Biblioteca para desenvolvimento de modelos de ML |
+| **Serialização** | **Joblib** | `>=1.5.2, <2.0.0` | Biblioteca de utilitários para persistência eficiente de objetos e pipelines de ML |
+| **Autenticação** | **Flask-JWT-Extended** | `>=4.7.1, <5.0.0` | Extensão para implementação de segurança e controle de acesso via tokens JWT |
+| **Criptografia** | **Flask-Bcrypt** | `>=1.0.1, <2.0.0` | Extensão de segurança para hashing e verificação robusta de senhas |
+| **Persistência/ORM** | **Flask-SQLAlchemy** | `>=3.1.1, <4.0.0` | Extensão/ORM para mapeamento e manipulação de bancos de dados relacionais |
+| **Driver DB** | **psycopg2-binary** | `>=2.9.11, <3.0.0` | Biblioteca para comunicação nativa com servidores PostgreSQL |
+| **Documentação** | **Flasgger** | `>=0.9.7.1, <0.10.0.0` | Biblioteca para documentação interativa baseada na especificação Swagger/OpenAPI |
+| **Linguagem** | **Python** | `-` | Linguagem para desenvolvimento de scripts |
+| **Gerenciamento** | **Poetry** | `2.2.1` | Gerenciador de ambientes virtuais para isolamento de dependências |
 
 ### Integrações
 
-A API em produção no Vercel recebe requisições de aplicativo web Streamlit, cujo link e repositório pode ser acessado em:
+A API em produção no Vercel recebe requisições de aplicativo web Streamlit.
 
-Aplicativo: https://preditorespeciesiris.streamlit.app/
+Link para o aplicativo web: https://preditorespeciesiris.streamlit.app/
 
-Repositório GitHub: https://github.com/jorgeplatero/preditor_especies_iris
+Link para o repositório GitHub: https://github.com/jorgeplatero/preditor_especies_iris
 
 ### Deploy
 
