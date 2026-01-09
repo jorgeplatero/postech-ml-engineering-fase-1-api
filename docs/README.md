@@ -14,7 +14,7 @@ curl -sSL [https://install.python-poetry.org](https://install.python-poetry.org)
 
 ### Instalação
 
-Clone o repositório e instale as dependências listadas no pyproject.toml:
+Clone o repositório e instale as dependências:
 
 ```bash
 git clone https://github.com/jorgeplatero/postech_flask_ml_fase_1.git
