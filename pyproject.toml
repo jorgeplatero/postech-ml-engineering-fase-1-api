@@ -1,23 +1,27 @@
 [project]
-name = "postech-flask-ml-fase-1"
+name = "postech-ml-engineering-fase-1-api"
 version = "0.1.0"
 description = "API Flask para Predição de Espécies Iris"
 authors = [
     {name = "Jorge Platero",email = "jorge.platero@outlook.com"}
 ]
 license = {text = "MIT"}
-readme = "README.md"
+readme = "docs/README.md"
 requires-python = ">=3.11, <4.0"
 dependencies = [
     "flask (>=3.1.2,<4.0.0)",
+    "flask-sqlalchemy (>=3.1.1,<4.0.0)",
+    "flask-jwt-extended (>=4.7.1,<5.0.0)",
+    "flask-bcrypt (>=1.0.1,<2.0.0)",
+    "flask-caching (>=2.3.1,<3.0.0)",
+    "flask-migrate (>=4.1.0,<5.0.0)",
     "flasgger (>=0.9.7.1,<0.10.0.0)",
+    "psycopg2-binary (>=2.9.11,<3.0.0)",
+    "alembic (>=1.17.2,<2.0.0)",
     "scikit-learn (>=1.7.2,<2.0.0)",
     "joblib (>=1.5.2,<2.0.0)",
     "numpy (>=2.3.5,<3.0.0)",
-    "flask-sqlalchemy (>=3.1.1,<4.0.0)",
-    "flask-jwt-extended (>=4.7.1,<5.0.0)",
-    "psycopg2-binary (>=2.9.11,<3.0.0)",
-    "flask-bcrypt (>=1.0.1,<2.0.0)"
+    "python-dotenv (>=1.2.1,<2.0.0)"
 ]
 
 
