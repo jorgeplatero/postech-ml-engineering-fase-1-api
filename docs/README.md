@@ -159,8 +159,8 @@ Link para o repositório GitHub: https://github.com/jorgeplatero/preditor_especi
 
 ### Deploy
 
-O deploy desta API foi realizado via Vercel. 
+O deploy desta API foi realizado via Render. 
 
-Link para a API: postech-flask-ml-fase-1.vercel.app
+Link para a API: https://postech-ml-engineering-fase-1-api.onrender.com
 
-A persistência de dados foi realizada integrando a API com o serviço Neon Serverless PostgreSQL disponível no Vercel.
+A persistência de dados foi realizada integrando a API com o serviço PostgreSQL disponível no Render.
