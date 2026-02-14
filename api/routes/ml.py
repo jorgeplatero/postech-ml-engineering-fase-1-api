@@ -1,7 +1,7 @@
 import logging
 from flask import Blueprint, jsonify, request
 from flask_jwt_extended import get_jwt_identity, jwt_required
-from scripts.ml_utils import get_prediction, get_user_predictions
+from api.scripts.ml_utils import get_prediction, get_user_predictions
 
 
 logger = logging.getLogger(__name__)
