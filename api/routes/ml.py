@@ -1,10 +1,7 @@
 import logging
-import numpy as np
 from flask import Blueprint, jsonify, request
-from api.models.predictions import Predictions
-from api.extensions import db
-from . import model
-from flask_jwt_extended import jwt_required, get_jwt_identity
+from flask_jwt_extended import get_jwt_identity, jwt_required
+from scripts.ml_utils import get_prediction, get_user_predictions
 
 
 logger = logging.getLogger(__name__)
@@ -85,47 +82,11 @@ def predict():
                     error: '<erro interno do servidor>'
     '''
     user_id = get_jwt_identity()
-    
     data = request.get_json(force=True)
-    try:
-        sepal_length = float(data['sepal_length'])
-        sepal_width = float(data['sepal_width'])
-        petal_length = float(data['petal_length'])
-        petal_width = float(data['petal_width'])
-    except (ValueError, KeyError) as e:
-        logger.error('Dados de entrada inválidos')
-        return jsonify({'error': 'Dados inválidos, verifique parâmetros'}), 400
-
-    features = [sepal_length, sepal_width, petal_length, petal_width]
-    input_data = np.array([features])
     
-    try:
-        prediction = model.predict(input_data)
-        predicted_class = int(prediction[0])
-        predicted_specie_name = {
-            0: 'setosa',
-            1: 'versicolor',
-            2: 'virginica'
-        }.get(predicted_class)
-    except Exception as e:
-        logger.error(f'error: {e}')
-        return jsonify({'error': 'Erro ao gerar predição'}), 500
-    try:
-        new_pred = Predictions(
-            user_id=user_id,
-            sepal_length=sepal_length,
-            sepal_width=sepal_width,
-            petal_length=petal_length,
-            petal_width=petal_width,
-            predicted_class=predicted_class,
-            predicted_specie=predicted_specie_name,
-        )
-        db.session.add(new_pred)
-        db.session.commit()
-    except Exception as e:
-        db.session.rollback()
-        logger.error(f'error: {e}')
-    return jsonify({'predicted_specie': predicted_specie_name})
+    response, status_code = get_prediction(user_id, data)
+    
+    return jsonify(response), status_code
 
 
 @ml_bp.route('/predictions', methods=['GET'])
@@ -186,6 +147,17 @@ def predictions():
                     sepal_length: 1.1
                     sepal_width: 10.5
                     created_at: '2026-02-01T19:21:17.370208'
+        400:
+            description: Parâmetros de paginação inválidos.
+            schema:
+                type: object
+                properties:
+                    error:
+                        type: string
+                        description: Mensagem de erro de validação.
+            examples:
+                application/json:
+                    error: 'Parâmetros limit ou offset inválidos'
         401:
             description: Erro de autenticação JWT.
             schema:
@@ -209,28 +181,17 @@ def predictions():
                 application/json:
                     error: '<erro interno do servidor>'
     '''
-    user_id = get_jwt_identity()
-    
-    limit = int(request.args.get('limit', 10))
-    offset = int(request.args.get('offset', 0))
-    
-    preds = Predictions.query.filter_by(user_id=user_id)\
-        .order_by(Predictions.id.desc())\
-        .limit(limit)\
-        .offset(offset)\
-        .all()
-    
-    results = []
-    for p in preds:
-        results.append({
-            'id': p.id,
-            'sepal_length': p.sepal_length,
-            'sepal_width': p.sepal_width,
-            'petal_length': p.petal_length,
-            'petal_width': p.petal_width,
-            'predicted_class': p.predicted_class,
-            'predicted_specie': p.predicted_specie,
-            'created_at': p.created_at.isoformat()
-        })
+    user_id = get_jwt_identity()    
 
+    try:
+        limit = int(request.args.get('limit', 10))
+        offset = int(request.args.get('offset', 0))
+    except ValueError:
+        return jsonify({'error': 'Parâmetros limit ou offset inválidos'}), 400
+    
+    results, error = get_user_predictions(user_id, limit, offset)
+    
+    if results is None:
+        return jsonify({'error': error}), 500
+        
     return jsonify(results)

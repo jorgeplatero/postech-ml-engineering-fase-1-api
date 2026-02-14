@@ -1,11 +1,12 @@
 import logging
+from typing import Optional
 from api.models.user import User
 
 
 logger = logging.getLogger('__name__')
 
 
-def get_user_by_username(username):
+def get_user_by_username(username: str) -> Optional[User]:
     '''
     Busca e retorna um objeto de usuário (User) baseado no nome de usuário (username).
 
