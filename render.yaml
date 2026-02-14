@@ -21,7 +21,7 @@ services:
         sync: false 
 
 databases:
-  - name: postech-ml-engineering-fase-1-api 
+  - name: postech-ml-engineering-fase-1-api-db
     user: postech
     plan: free
     region: oregon 
