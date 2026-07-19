@@ -155,7 +155,7 @@ A API em produção recebe requisições de um aplicativo web Streamlit.
 
 Link para o aplicativo web: https://preditorespeciesiris.streamlit.app/
 
-Link para o repositório GitHub: https://github.com/jorgeplatero/preditor_especies_iris
+Link para o repositório GitHub: https://github.com/jorgeplatero/postech-ml-engineering-fase-1-web-app
 
 ### Deploy
 
