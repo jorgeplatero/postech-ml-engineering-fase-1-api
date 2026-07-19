@@ -3,6 +3,7 @@ services:
     name: postech-ml-engineering-fase-1-api
     runtime: python
     plan: free
+    region: oregon
     buildCommand: |
       pip install poetry
       poetry config virtualenvs.create false
